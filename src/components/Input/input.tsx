@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form/dist/types";
 import * as yup from "yup";
+import { InputStyled } from "./style";
 
 interface IProps {
   register: any;
@@ -52,7 +53,7 @@ const Input: React.FC<IProps> = ({
   };
 
   return (
-    <>
+    <InputStyled>
       {format === "money" ? (
         <input
           placeholder={placeholder}
@@ -66,7 +67,7 @@ const Input: React.FC<IProps> = ({
       )}
 
       {typeof error === "string" ? <span>{error}</span> : null}
-    </>
+    </InputStyled>
   );
 };
 

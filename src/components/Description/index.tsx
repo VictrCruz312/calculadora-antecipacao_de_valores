@@ -16,7 +16,6 @@ const Description: React.FC<IpropsDescription> = ({
   colorText,
   fontSize,
 }) => {
-  console.log(children);
   return (
     <StyledDescription colorText={colorText} fontSize={fontSize}>
       {" "}

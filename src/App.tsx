@@ -37,14 +37,14 @@ function App() {
           </Description>
         </StyledContainerResult>
       </ContainerApp>
-      <Toaster
+      {/* <Toaster
         toastOptions={{
           style: {
             background: "#363636",
             color: "#fff",
           },
         }}
-      />
+      /> */}
     </>
   );
 }

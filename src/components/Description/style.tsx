@@ -8,4 +8,6 @@ interface IPropsStyling {
 export const StyledDescription = styled.p<IPropsStyling>`
   color: ${({ colorText }) => (colorText ? colorText : "var(--GreyText)")};
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "14px")};
+
+  margin-top: 15px;
 `;

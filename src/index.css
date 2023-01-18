@@ -6,16 +6,10 @@ body {
   justify-content: center;
   align-items: center;
 
-  font-family: "Inter", sans-serif;
-  background-color: #adadad;
+  background-color: var(--GreyTextLight);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-* {
-  box-sizing: border-box;
-  transition: 0.1s;
 }

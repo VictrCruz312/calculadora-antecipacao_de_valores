@@ -7,11 +7,12 @@ export const StyledForm = styled.form`
   button {
     align-self: center;
     margin-top: 10px;
+    padding: 5px 10px;
 
-    border: 1.5px solid #0030b4;
+    border: 1.5px solid var(--Blue);
     box-shadow: -1px 1.5px 4px blue;
-    background: #007ee6;
-    color: #ffffff;
+    background: var(--BlueLight);
+    color: var(--White);
     font-weight: bold;
     cursor: pointer;
 
@@ -20,13 +21,13 @@ export const StyledForm = styled.form`
     transition: 0.5s;
 
     :hover {
-      background: #0030b4;
-      border: 1.5px solid #007ee6;
+      background: var(--Blue);
+      border: 1.5px solid var(--BlueLight);
     }
   }
 
   .spanForm {
     font-size: 11px;
-    color: #919191;
+    color: var(--GreyTextLight);
   }
 `;

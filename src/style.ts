@@ -12,9 +12,9 @@ export const ContainerApp = styled.div`
   border-radius: 4px;
   padding: 10vh 6vw;
 
-  background: rgb(255, 255, 255);
-  border: 1px solid #838383;
-  border-top: 2px solid #838383;
+  background: var(--White);
+  border: 1px solid var(--GreyText);
+  border-top: 2px solid var(--GreyText);
 
   @media screen and (min-width: 780px) {
     flex-wrap: nowrap;
@@ -23,12 +23,16 @@ export const ContainerApp = styled.div`
 `;
 
 export const StyledContainerResult = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+
   h2 {
     width: 220px;
     padding-bottom: 4px;
-    border-bottom: 1px solid #6d6d6d;
+    border-bottom: 1px solid var(--GreyTextLight);
 
-    color: #0030b4;
+    color: var(--Blue);
     font-size: 21px;
     font-weight: 800;
     text-transform: uppercase;

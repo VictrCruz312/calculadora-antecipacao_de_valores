@@ -6,17 +6,17 @@ export const InputStyled = styled.div`
     width: 100%;
     font-size: 17px;
     border-radius: 3px;
-    border: 0.5px solid #818181;
+    border: 0.5px solid var(--GreyTextLight);
     font-weight: 700;
 
     :focus {
-      border: 0.5px solid #006ac0;
-      outline: 0.5px solid #006ac0;
+      border: 0.5px solid var(--BlueLight);
+      outline: 0.5px solid var(--BlueLight);
     }
   }
 
   span {
     font-size: 11px;
-    color: red;
+    color: var(--Error);
   }
 `;

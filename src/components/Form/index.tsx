@@ -12,7 +12,6 @@ import Input, { moneyFormat } from "../Input/input";
 import Description from "../Description";
 import api from "../../services/api";
 import { IResponse } from "../../App";
-import { number } from "yup/lib/locale";
 
 interface IPropsForm {
   setResponse: React.Dispatch<React.SetStateAction<IResponse | undefined>>;
@@ -111,8 +110,8 @@ const Form: React.FC<IPropsForm> = ({ setResponse }) => {
       <Toaster
         toastOptions={{
           style: {
-            background: "#363636",
-            color: "#fff",
+            background: "var(--Blue)",
+            color: "var(--White)",
           },
         }}
       />

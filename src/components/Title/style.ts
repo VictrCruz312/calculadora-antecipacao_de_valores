@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledTitle = styled.h1`
-  color: #5f5f5f;
+  color: var(--GreyTitle);
   font-size: 25px;
   font-weight: 800;
   text-align: center;

@@ -6,6 +6,6 @@ interface IPropsStyling {
 }
 
 export const StyledDescription = styled.p<IPropsStyling>`
-  color: ${({ colorText }) => (colorText ? colorText : "#313131")};
+  color: ${({ colorText }) => (colorText ? colorText : "var(--GreyText)")};
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "14px")};
 `;

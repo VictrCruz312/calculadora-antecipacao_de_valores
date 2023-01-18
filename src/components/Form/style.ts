@@ -4,6 +4,8 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  width: 50%;
+
   button {
     align-self: center;
     margin-top: 10px;

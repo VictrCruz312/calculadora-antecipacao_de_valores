@@ -8,6 +8,7 @@ export const ContainerApp = styled.div`
   flex-wrap: wrap;
 
   width: 100vw;
+  height: 100vh;
   margin: 0 auto;
   border-radius: 4px;
   padding: 10vh 6vw;
@@ -19,13 +20,14 @@ export const ContainerApp = styled.div`
   @media screen and (min-width: 780px) {
     flex-wrap: nowrap;
     width: 70vw;
+    height: 60vh;
   }
 `;
 
 export const StyledContainerResult = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 17px;
 
   h2 {
     width: 220px;

@@ -47,7 +47,7 @@ const Input: React.FC<IProps> = ({
   });
 
   const handleValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-    schemaMoneyFormat
+    return schemaMoneyFormat
       .validate({ money: event.target.value })
       .then((data) => setValue(data.money));
   };

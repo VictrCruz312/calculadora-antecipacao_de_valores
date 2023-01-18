@@ -6,12 +6,13 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FieldValues } from "react-hook-form/dist/types";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 import Input, { moneyFormat } from "../Input/input";
 import Description from "../Description";
 import api from "../../services/api";
 import { IResponse } from "../../App";
+import { number } from "yup/lib/locale";
 
 interface IPropsForm {
   setResponse: React.Dispatch<React.SetStateAction<IResponse | undefined>>;
@@ -48,17 +49,27 @@ const Form: React.FC<IPropsForm> = ({ setResponse }) => {
     );
     data.amount = amountNumber;
 
-    const response = await toast.promise(api.post("", { ...data }), {
-      loading: "Simulando...",
-      success: <b>Simulação concluida</b>,
-      error: (
-        <b>
-          Falha ao gerar simulação. Verifique o campo de venda, ele deve ser no
-          mínimo 1000.
-        </b>
-      ),
-    });
-    setResponse(response.data);
+    const loadingRequest = toast.loading("simulando...");
+
+    try {
+      const response = await api.post("", { ...data });
+      setResponse(response.data);
+      toast.success("simulação concluida", {
+        id: loadingRequest,
+      });
+    } catch (error: any) {
+      if (error.response.status === 500) {
+        toast.error("Erro interno do servidor. Tente novamente mais tarde.");
+      } else if (error.response.status === 408) {
+        toast.error("Tempo de conexão esgotado. Tente novamente mais tarde.");
+      } else {
+        toast.error("Falha ao gerar simulação.", {
+          id: loadingRequest,
+        });
+        toast.error("Campo venda deve ser no minimo 1000");
+        console.log("Error", error.message);
+      }
+    }
   };
 
   return (
@@ -97,6 +108,14 @@ const Form: React.FC<IPropsForm> = ({ setResponse }) => {
         />
       </div>
       <button type="submit">calcular</button>
+      <Toaster
+        toastOptions={{
+          style: {
+            background: "#363636",
+            color: "#fff",
+          },
+        }}
+      />
     </StyledForm>
   );
 };

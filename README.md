@@ -4,6 +4,8 @@ saiba quanto vai receber do total de uma venda se optar por antecipação de rec
 
 Esse aplicativo foi desenvolvido em _ReactJS_ por [@VictrCruz312](github.com/VictrCruz312) <br><br>
 
+### Deploy da aplicação: [clique aqui](https://calculadora-antecipacao-de-valores.vercel.app/)
+
 > ## Alguns comandos disponiveis:
 
 Dentro do diretório do projeto execute algum desses comandos:

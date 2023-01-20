@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form/dist/types";
-import * as yup from "yup";
+import { moneyFormatSchema } from "../../schemas/Antecipation";
 import { InputStyled } from "./style";
 
 interface IProps {
@@ -16,22 +16,6 @@ interface IProps {
   format?: string;
 }
 
-export const moneyFormat = yup
-  .string()
-  .transform((value) => {
-    if (value) {
-      return (
-        "R$" +
-        value
-          .replace(/\D/g, "")
-          .replace(/(\d{2})$/, ",$1")
-          .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
-      );
-    }
-    return value;
-  })
-  .default(null);
-
 const Input: React.FC<IProps> = ({
   register,
   name,
@@ -42,12 +26,10 @@ const Input: React.FC<IProps> = ({
 }) => {
   const [value, setValue] = useState<string | undefined>(undefined);
 
-  const schemaMoneyFormat = yup.object().shape({
-    money: moneyFormat.required(),
-  });
-
-  const handleValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-    return schemaMoneyFormat
+  const handleValueMoneyFormat = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    return moneyFormatSchema
       .validate({ money: event.target.value })
       .then((data) => setValue(data.money));
   };
@@ -59,7 +41,7 @@ const Input: React.FC<IProps> = ({
           placeholder={placeholder}
           type={type}
           {...register(name)}
-          onChange={handleValue}
+          onChange={handleValueMoneyFormat}
           value={value}
         />
       ) : (
